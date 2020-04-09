@@ -2,6 +2,8 @@
 // Created by dmitri on 09.04.2020.
 //
 
+#include <thread>
+
 #include "thread_guard.h"
 namespace advanced_thread {
 
@@ -18,10 +20,6 @@ namespace advanced_thread {
 //
 // Joining thread
 //
-    template<class Callable, typename ... Args>
-    joining_thread::joining_thread(Callable && func, Args&& ... args):
-        t(std::forward<Callable>(func), std::forward<Args>(args)...){}
-
     joining_thread::joining_thread(std::thread t_) noexcept: t(std::move(t_)){}
     joining_thread::joining_thread(advanced_thread::joining_thread && other) noexcept : t(std::move(other.t)){}
     joining_thread::~joining_thread() noexcept { if_joinable(); }

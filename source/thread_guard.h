@@ -5,8 +5,6 @@
 #ifndef CONCURRENCY_THREAD_GUARD_H
 #define CONCURRENCY_THREAD_GUARD_H
 
-#include <thread>
-
 namespace advanced_thread {
 
     class scoped_thread {
@@ -24,7 +22,8 @@ namespace advanced_thread {
         inline void if_joinable();
     public:
         template<class Callable, typename ... Args>
-        explicit joining_thread(Callable &&, Args&& ... args);
+        explicit joining_thread(Callable &&func , Args&& ... args):
+                t(std::forward<Callable>(func), std::forward<Args>(args)...){}
 
         explicit joining_thread(std::thread) noexcept;
 
