@@ -6,6 +6,7 @@
 #define CONCURRENCY_FUNCTIONS_H
 
 #define MIN_PER_THREAD 25lu
+#define DEFAULT_HARDWARE_THREADS 4u
 
 namespace advanced_thread {
 
