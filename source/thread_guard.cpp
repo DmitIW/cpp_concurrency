@@ -12,7 +12,7 @@ namespace advanced_thread {
 //
     scoped_thread::scoped_thread(std::thread t_): t(std::move(t_)) {
         if (!t.joinable())
-            throw std::logic_error("No thread");
+            exit(1);
     }
 
     scoped_thread::~scoped_thread() { t.join(); }
