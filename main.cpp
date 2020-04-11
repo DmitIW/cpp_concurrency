@@ -31,5 +31,8 @@ int main() {
     advanced_thread::threadsafety_stack<int> s{};
     for (int i = 0; i < 10; i++)
         s.push(i);
+
+    while (!s.empty())
+        std::cout << "Stack: " << *s.pop() << std::endl;
     return 0;
 }

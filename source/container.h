@@ -54,7 +54,7 @@ namespace advanced_thread {
             data.pop();
         }
 
-        void empty() const {
+        bool empty() const {
             std::lock_guard guard(locker);
             return data.empty();
         }
