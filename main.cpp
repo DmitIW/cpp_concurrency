@@ -5,6 +5,7 @@
 
 #include "source/thread_guard.h"
 #include "source/functions.h"
+#include "source/container.h"
 
 #include "source/profile.h"
 
@@ -24,5 +25,11 @@ int main() {
 
     std::cout << "Parallel result: " << parallel_result << std::endl;
     std::cout << "Not parallel result: " << result << std::endl;
+    std::cout << "Thread num: " << advanced_thread::num_threads(numbers.size()) << std::endl;
+    std::cout << "Per thread: " << numbers.size() / advanced_thread::num_threads(numbers.size()) << std::endl;
+
+    advanced_thread::threadsafety_stack<int> s{};
+    for (int i = 0; i < 10; i++)
+        s.push(i);
     return 0;
 }
