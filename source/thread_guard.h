@@ -7,14 +7,6 @@
 
 namespace advanced_thread {
 
-    class scoped_thread {
-    private:
-        std::thread t;
-    public:
-        explicit scoped_thread(std::thread t_);
-        ~scoped_thread();
-    };
-
     class joining_thread {
     private:
         std::thread t;

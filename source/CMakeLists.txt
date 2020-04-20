@@ -3,5 +3,6 @@ add_library(thread_utility
         functions.h    functions.cpp
         profile.h
         container.h    container.cpp
+        mutex.h        mutex.cpp
         )
 target_link_libraries(thread_utility pthread)

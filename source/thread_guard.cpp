@@ -8,16 +8,6 @@
 namespace advanced_thread {
 
 //
-// Scoped thread
-//
-    scoped_thread::scoped_thread(std::thread t_): t(std::move(t_)) {
-        if (!t.joinable())
-            exit(1);
-    }
-
-    scoped_thread::~scoped_thread() { t.join(); }
-
-//
 // Joining thread
 //
     joining_thread::joining_thread(std::thread t_) noexcept: t(std::move(t_)){}
